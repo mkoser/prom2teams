@@ -21,6 +21,8 @@ RUN apk add gcc libc-dev yaml-dev linux-headers --no-cache \
 	&& pip install prom2teams*.whl
 ENV PROM2TEAMS_PORT="8089" \
         PROM2TEAMS_HOST="0.0.0.0" \
+        PROM2TEAMS_SSL_CERT="" \
+        PROM2TEAMS_SSL_KEY="" \
         PROM2TEAMS_LOGLEVEL="INFO" \
         PROM2TEAMS_CONNECTOR="" \
         PROM2TEAMS_GROUP_ALERTS_BY="" \

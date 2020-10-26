@@ -12,6 +12,12 @@ except ImportError:
 if __name__ == "__main__":
     host = application.config['HOST']
     port = int(application.config['PORT'])
+    ssl_cert = application.config['SSL_CERT']
+    ssl_key = application.config['SSL_KEY']
+    if ssl_cert and ssl_key:
+        ssl_tuple = (ssl_cert, ssl_key)
+    else:
+        ssl_tuple = None
     run_simple(hostname=host, port=port, application=application, use_reloader=True,
-               reloader_type='stat', reloader_interval=5, extra_files=[application.config['APP_CONFIG_FILE']])
+            reloader_type='stat', reloader_interval=5, extra_files=[application.config['APP_CONFIG_FILE']], ssl_context=ssl_tuple)
 

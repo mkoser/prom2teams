@@ -46,6 +46,12 @@ def _update_application_configuration(application, configuration):
         if 'Port' in configuration['HTTP Server']:
             _port = configuration['HTTP Server']['Port']
             application.config['PORT'] = _port
+        if 'SslCert' in configuration['HTTP Server']:
+            _ssl_cert = configuration['HTTP Server']['SslCert']
+            application.config['SSL_CERT'] = _ssl_cert
+        if 'SslKey' in configuration['HTTP Server']:
+            _ssl_key = configuration['HTTP Server']['SslKey']
+            application.config['SSL_KEY'] = _ssl_key
     if 'Labels' in configuration:
         application.config['LABELS_EXCLUDED'] = tuple(configuration['Labels']['Excluded'].replace(' ', '').split(','))
     if 'Annotations' in configuration:
